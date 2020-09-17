@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MenuListItem from '../menu-list-item';
 import { connect } from 'react-redux';
 import WithRestoService from '../hoc';
+import { menuLoaded } from '../../actions';
 
 import './menu-list.scss';
 
@@ -9,7 +10,7 @@ class MenuList extends Component {
     componentDidMount() {
         const { RestoService } = this.props;
         RestoService.getMenuItems()
-            .then(res => console.log(res));
+            .then(res => this.props.menuLoaded(res));
     }
 
     render() {
@@ -33,15 +34,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        menuLoaded: (newMenu) => {
-            dispatch({
-                type: 'MENU_LOADED',
-                payload: newMenu
-            })
-        }
-    };
+const mapDispatchToProps = {
+    menuLoaded
 };
 
 export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(MenuList));

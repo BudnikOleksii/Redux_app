@@ -6,7 +6,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MENU_LOADED':
             return {
-                menu: action.payLoaded
+                menu: action.payLoad
             };
         default: 
             return state;

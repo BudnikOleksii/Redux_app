@@ -12,7 +12,6 @@ const App = () => {
             <Switch>
                 <Route path='/' exact component={MainPage}/>
                 <Route path='/cart'  component={CartPage}/>
-                <Route  exact component={MainPage}/>
             </Switch>
         </div>
     )
