@@ -13,12 +13,28 @@ const menuRequested = () => {
 
 const menuError = () => {
     return {
-        type: 'MENU_ERROR',
-    }
-}
+        type: 'MENU_ERROR'
+    };
+};
+
+const addedToCart = (id) => {
+    return {
+        type: 'ITEM_ADD_TO_CART',
+        payLoad: id
+    };
+};
+
+const deleteFromCart = (id) => {
+    return {
+        type: 'ITEM_REMOVE_FROM_CART',
+        payLoad: id
+    };
+};
 
 export {
     menuLoaded,
     menuRequested,
-    menuError
+    menuError,
+    addedToCart,
+    deleteFromCart
 };
